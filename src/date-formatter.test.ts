@@ -4,6 +4,8 @@ const daylightDate = new Date('2021-02-03T14:15:16Z')
 const standardDate = new Date('2021-08-03T14:15:16Z')
 const daylightFormatter = new DateFormatter(daylightDate, 'Australia/Sydney')
 const standardFormatter = new DateFormatter(standardDate, 'Australia/Sydney')
+const westFormatter = new DateFormatter(standardDate, 'Australia/Perth')
+const utcFormatter = new DateFormatter(standardDate, 'UTC')
 
 test('getYear', () => {
     expect(daylightFormatter.getYear()).toEqual('2021')
@@ -37,6 +39,10 @@ test('getMeridiem', () => {
 test('getTimeZoneName', () => {
     expect(daylightFormatter.getTimeZoneName()).toEqual('AEDT')
     expect(standardFormatter.getTimeZoneName()).toEqual('AEST')
+    expect(daylightFormatter.getTimeZoneName('offset')).toEqual('+11:00')
+    expect(standardFormatter.getTimeZoneName('offset')).toEqual('+10:00')
+    expect(utcFormatter.getTimeZoneName('offset')).toEqual('Z')
+    expect(westFormatter.getTimeZoneName('offset')).toEqual('+08:00')
 })
 test('toDate', () => {
     expect(daylightFormatter.toDate()).toEqual('4/2/2021')
@@ -51,6 +57,9 @@ test('toDateTimeTz', () => {
 })
 test('toIsoDate', () => {
     expect(daylightFormatter.toIsoDate()).toEqual('2021-02-04')
+})
+test('toIsoDateTime', () => {
+    expect(daylightFormatter.toIsoDateTime()).toEqual('2021-02-04T01:15:16+11:00')
 })
 test('toTime', () => {
     expect(daylightFormatter.toTime()).toEqual('1:15:16 AM')
