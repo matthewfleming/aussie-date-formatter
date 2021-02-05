@@ -60,6 +60,7 @@ test('toIsoDate', () => {
 })
 test('toIsoDateTime', () => {
     expect(daylightFormatter.toIsoDateTime()).toEqual('2021-02-04T01:15:16+11:00')
+    expect(utcFormatter.toIsoDateTime()).toEqual('2021-08-03T14:15:16Z')
 })
 test('toTime', () => {
     expect(daylightFormatter.toTime()).toEqual('1:15:16 AM')

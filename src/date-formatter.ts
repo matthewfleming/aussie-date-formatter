@@ -110,14 +110,15 @@ export class DateFormatter {
     )}`;
   }
   toIsoDateTime() {
-    return `${this.toIsoDate()}T${this.toTime('2-digit').slice(0,-3)}${this.getTimeZoneName('offset')}`
+    return `${this.toIsoDate()}T${this.toTime('24')}${this.getTimeZoneName('offset')}`
   }
-  toTime(format: "2-digit" | "numeric" = "numeric", seconds = true) {
+  toTime(format: "2-digit" | "numeric" | '24' = "numeric", seconds = true) {
     return this.date.toLocaleTimeString("en-US", {
       ...this.options,
-      hour: format,
+      hour: format === '24' ? '2-digit': format,
       minute: '2-digit',
-      second: seconds ? '2-digit': undefined
+      second: seconds ? '2-digit': undefined,
+      hour12: format === '24' ? false: undefined
     });
   }
   toTimeTz() {
