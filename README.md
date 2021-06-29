@@ -12,9 +12,11 @@ yarn test
 
 ## Usage
 
-```js
-date = new Date('2021-08-03T14:15:16Z')
-formatter = new DateFormatter(date, 'Australia/Sydney')
+```ts
+import { DateFormatter } from "aussie-date-formatter"
+
+const date = new Date('2021-08-03T14:15:16Z')
+const formatter = new DateFormatter(date, 'Australia/Sydney')
 
 formatter.toDateTimeTz()
 // 4/2/2021 1:15:16 AM AEDT
@@ -29,13 +31,18 @@ formatter.toIsoDate()
 // 2021-04-02
 
 formatter.toTime()
-// 1:15:16 PM
+// 1:15:16 AM
 
 formatter.toTime('2-digit')
-// 01:15:16 PM
+// 01:15:16 AM
 
 formatter.toTime('24')
 // 01:15:16
+```
+
+```js
+const df = require('aussie-date-formatter')
+const formatter = new df.DateFormatter(new Date(), 'Australia/Perth')
 ```
 
 ## Caveats

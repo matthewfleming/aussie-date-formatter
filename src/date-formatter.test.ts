@@ -1,4 +1,4 @@
-import { DateFormatter } from "../src/date-formatter"
+import { DateFormatter } from "./date-formatter"
 
 const daylightDate = new Date('2021-02-03T14:15:16Z')
 const standardDate = new Date('2021-08-03T14:15:16Z')

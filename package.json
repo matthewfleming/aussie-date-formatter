@@ -1,6 +1,6 @@
 {
   "name": "aussie-date-formatter",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Date formatter for Australians",
   "main": "./dist/date-formatter.js",
   "types": "./dist/date-formatter.d.ts",
