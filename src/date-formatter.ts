@@ -89,7 +89,7 @@ export class DateFormatter {
           : this.date
               .toLocaleDateString("en-US", {
                 ...this.options,
-                timeZoneName: "lon",
+                timeZoneName: "long",
               })
               .split(" ")
               .pop();

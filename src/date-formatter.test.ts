@@ -64,7 +64,9 @@ test('toIsoDateTime', () => {
 })
 test('toTime', () => {
     expect(daylightFormatter.toTime()).toEqual('1:15:16 AM')
+    expect(daylightFormatter.toTime('2-digit')).toEqual('01:15:16 AM')
     expect(standardFormatter.toTime()).toEqual('12:15:16 AM')
+    expect(standardFormatter.toTime('24')).toEqual('00:15:16')
 })
 
 test('Time zone change', () => {
